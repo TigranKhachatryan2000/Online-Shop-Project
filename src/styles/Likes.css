@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.likeBtn {
+   font-size: 15px;
+   font-family: 'Open Sans', sans-serif;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   background-color: #d0e2d0;
+   margin-left: 20px;
+}
+
+.like {
+   height: 20px;
+   font-size: 16px;
+   padding-top: 5px;
+   padding-bottom: 4px;
+   padding-right: 6px;
+   border-radius: 4px 4px 4px 4px;
+   margin-top: 20px;
+}

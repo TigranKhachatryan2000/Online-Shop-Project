@@ -1,0 +1,36 @@
+.pizzamenu {
+    color: #333;
+    width: 350px;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: 3px 3px 9px 6px rgb(187, 177, 177);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    margin-left: 50px;
+}
+
+.dropdown-item {
+    background-color: #fff;
+    position: fixed;
+    color: #333;
+    padding: 10px;
+    width: 350px;
+    box-shadow: 3px 3px 9px 6px rgb(187, 177, 177);
+    font-weight: 500;
+    margin-left: 50px;
+}
+
+.pizza {
+    padding: 9px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 1px 1px 1px 1px rgb(187, 177, 177);
+}
+
+.pizza:hover {
+    background: #f4f4f4;
+    background-color: rgb(78, 72, 72);
+}
