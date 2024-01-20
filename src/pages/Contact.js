@@ -1,6 +1,6 @@
 import React from "react";
 import PizzaLeft from "../assets/pizzaLeft.jpg";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import "../styles/Contact.css";
 
 function Contact() {
@@ -13,46 +13,46 @@ function Contact() {
   const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
-      if(nameError || emailError) {
-         setFormValid(false);
-      }
-      else {
-         setFormValid(true);
-      }
-  }, [nameError, emailError])
+    if (nameError || emailError) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  }, [nameError, emailError]);
 
   const blurHandler = (e) => {
-    switch(e.target.name) {
-      case 'name':
-        setNameDirty(true)
-        break
-      case 'email':
-        setEmailDirty(true)
-        break
+    switch (e.target.name) {
+      case "name":
+        setNameDirty(true);
+        break;
+      case "email":
+        setEmailDirty(true);
+        break;
+      default:
+        break;
     }
-  }
+  };
 
   const nameHandler = (e) => {
-    setName(e.target.value)
-    if(!e.target.value) {
-      setNameError('Name-ը պետա լրացված լինի...')
+    setName(e.target.value);
+    if (!e.target.value) {
+      setNameError("Name-ը պետա լրացված լինի...");
+    } else {
+      setNameError("");
     }
-    else {
-      setNameError('')
-    }
-    
-}
+  };
 
   const emailHandler = (e) => {
-      setEmail(e.target.value)
-      const re =
-  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-      if(!re.test(String(e.target.value).toLowerCase())) {
-        setEmailError('Սխալ Email');
-      } else {
-        setEmailError('');
-      }
-  }
+    setEmail(e.target.value);
+    const emailRegex =
+      /^(([^<>()[\].;:\s@"]+(\.[^<>()[\].;:\s@"]+)*)|(".+"))@(([^<>()[\].;:\s@"]+\.)+[^<>()[\].;:\s@"]{2,})$/i;
+
+    if (!emailRegex.test(String(e.target.value).toLowerCase())) {
+      setEmailError("Invalid Email");
+    } else {
+      setEmailError("");
+    }
+  };
 
   return (
     <div className="contact">
@@ -65,19 +65,38 @@ function Contact() {
 
         <form id="contact-form" method="POST">
           <label htmlFor="name">Full Name</label>
-          {(nameDirty && nameError) && <div style={{color:'red'}}> {nameError} </div>}
-          <input name="name" placeholder="Enter full name..." type="text"  onBlur={e => blurHandler(e)} onChange={nameHandler} />
+          {nameDirty && nameError && (
+            <div style={{ color: "red" }}> {nameError} </div>
+          )}
+          <input
+            name="name"
+            placeholder="Enter full name..."
+            type="text"
+            onBlur={(e) => blurHandler(e)}
+            onChange={nameHandler}
+          />
           <label htmlFor="email">Email</label>
-          {(emailDirty && emailError) && <div style={{color:'red'}}> {emailError} </div>}
-          <input onChange={e => emailHandler(e)} onBlur={e => blurHandler(e)} name="email" placeholder="Enter email..." type="email" />
+          {emailDirty && emailError && (
+            <div style={{ color: "red" }}> {emailError} </div>
+          )}
+          <input
+            onChange={(e) => emailHandler(e)}
+            onBlur={(e) => blurHandler(e)}
+            name={email}
+            placeholder="Enter email..."
+            type="email"
+          />
           <label htmlFor="message">Message</label>
           <textarea
             rows="6"
             placeholder="Enter message..."
-            name="message"
+            name={name}
             required
           ></textarea>
-          <button disabled={!formValid} type="submit"> Send Message</button>
+          <button disabled={!formValid} type="submit">
+            {" "}
+            Send Message {}
+          </button>
         </form>
       </div>
     </div>
